@@ -1,4 +1,4 @@
-import os, requests, json, asyncio
+import os, requests, json
 from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
