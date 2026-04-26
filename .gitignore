@@ -1,5 +1,5 @@
 # Secrets
-
+.env
 
 # Data files (logs / saved quotes)
 data/
