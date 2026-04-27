@@ -9,7 +9,6 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 API_KEY = os.getenv("API_KEY")
 
-
 # ------------ FILE SAVE ---------------
 def save_quote(quote):
     base_dir = os.path.dirname(os.path.abspath(__file__))  # script location
@@ -19,7 +18,6 @@ def save_quote(quote):
 
     with open(file_path, "a") as f:
         f.write(json.dumps({"quote": quote}) + "\n")
-
 
 # ----------- GET QUOTE ---------------
 def get_quote():
@@ -40,19 +38,16 @@ def get_quote():
 
     return f"🌟 {quote_data['quote']}\n\n— {quote_data['author']}"
 
-
 # -------- COMMANDS --------
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "👋 Welcome to DailyWisdomBot!\n\n" "Use /quote to get an inspiring quote ✨"
     )
 
-
 async def quote(update: Update, context: ContextTypes.DEFAULT_TYPE):
     q = get_quote()
     save_quote(q)
     await update.message.reply_text(q)
-
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
@@ -61,7 +56,6 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/quote - Get a quote\n"
         "/help - Show this help"
     )
-
 
 # -------- MAIN --------
 app = ApplicationBuilder().token(BOT_TOKEN).build()
